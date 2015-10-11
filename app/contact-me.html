@@ -12,22 +12,25 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="">
 <!--links-->
-		<!-- build:css css/combined.css -->
+	<!-- build:css css/vendor.min.css -->
 	<!-- bower:css -->
 	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
-	<link rel="stylesheet" href="bower_components/qtip2/jquery.qtip.css" />
+	<link rel="stylesheet" href="bower_components/qtip2/jquery.qtip.min.css" />
 	<!-- endbower -->
-	
+	<!-- endbuild -->
+	<!-- build:css fonts/fonts.min.css -->
 	<link rel="stylesheet" href="css/font-family.css">
+	<!-- endbuild -->
+	<!-- build:css css/main.contact.min.css -->
 	<link rel="stylesheet" href="css/varible-content.css">
 	<link rel="stylesheet" href="css/aside.css">
-	<link rel="stylesheet" href="css/button.css">
 	<link rel="stylesheet" href="css/contact-me.css">
 	<link rel="stylesheet" href="css/base.css">
-
-		<!-- endbuild -->
-	<link href="css/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<!-- endbuild -->
+	<!-- build:js js/modernizr.min.js -->
 	<script src='bower_components/modernizr/modernizr.js'></script>
+	<!-- endbuild -->
+	<link href="css/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <!--END:links-->
 </head>
 <body class="my_body">
@@ -164,21 +167,21 @@
 </footer>
 <!-- END:footer -->
 <!-- scripts -->
-	<!-- build:js js/combined.js -->
-		<!-- bower:js -->
-		<script src='bower_components/jquery/jquery.js'></script>
-		<script src='bower_components/bPopup/jquery.bpopup.js'></script>
-		<script src='bower_components/eventEmitter/EventEmitter.js'></script>
-		<script src='bower_components/eventie/eventie.js'></script>
-		<script src='bower_components/imagesloaded/imagesloaded.js'></script>
-		<script src='bower_components/qtip2/jquery.qtip.js'></script>
-		<script src='bower_components/jquery-placeholder/jquery.placeholder.js'></script>
-		<!-- endbower -->
-
+	<!-- build:js js/vendor.min.js -->
+	<!-- bower:js -->
+	<script src='bower_components/jquery/jquery.js'></script>
+	<script src='bower_components/bPopup/jquery.bpopup.js'></script>
+	<script src='bower_components/qtip2/jquery.qtip.min.js'></script>
+	<script src='bower_components/jquery-placeholder/jquery.placeholder.js'></script>
+	<!-- endbower -->
+	<!-- endbuild -->
+	<!-- build:js js/main.min.js -->
 	<script src="js/main.js"></script>
+	<script src="js/popup.js"></script>
+	<script src="js/add_project.js"></script>
 	<script src="js/validation.js"></script>
 	<script src="js/contact_me.js"></script>
-
+	<script src="js/login.js"></script>
 	<!-- endbuild -->
 	<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
 <!-- END:scripts -->

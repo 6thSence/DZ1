@@ -83,6 +83,9 @@ var validation = (function(){
 			form = $(this),
 			elements =form.find('input,textarea');
 			elements.trigger('hideTooltip').removeClass('error');
+
+
+
 	};
 
      // Возвращает объект (публичные методы)

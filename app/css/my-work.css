@@ -194,6 +194,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfcfd', end
 	padding-left: 10px;
 	padding-top: 10px;
 	width: 332px;
+	overflow: hidden;
 }
 .input-file__element{
 position: absolute;

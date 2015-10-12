@@ -9,6 +9,7 @@ var validation = (function(){
      // Прослушивает события
     var _setUpListners = function() {
     	$('form').on('keyup', '.error', _removeError);
+    	$('form').on('change', '.error', _removeError);
     };
     var _removeError = function () {
     	$(this).removeClass('error');
@@ -41,7 +42,8 @@ var validation = (function(){
 		        }
 			},
 			hide: {
-				event: 'keyup hideTooltip',
+				event: 'hideTooltip change',
+				// event: 'keyup hideTooltip change',
 				effect: function(offset) {
 		            $(this).slideUp(100); 
 		        }

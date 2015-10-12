@@ -1,11 +1,15 @@
+
 .login-div{
-	position: absolute;
-	top: 30%;
-	left: 40%;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 	display: inline-block;
-	
 	width: 333px;
-	height: auto;
+	min-height: 300px;
+	max-height: 310px;
   	-moz-box-sizing: border-box;
     box-sizing: border-box;
        box-shadow:

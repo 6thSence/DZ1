@@ -90,7 +90,7 @@ gulp.task("dist-server", function () {
 gulp.task("fonts", function() {
     gulp.src(RS_CONF.path.baseDir + "/css/*")
         .pipe(filter(["*.eot","*.svg","*.ttf","*.woff","*.woff2"]))
-        .pipe(gulp.dest(RS_CONF.path.distDir + "/fonts/"))
+        .pipe(gulp.dest(RS_CONF.path.distDir+"/css/"))
 });
 
 // Перенос картинок

@@ -130,11 +130,14 @@ background: url(image/gh_hv.png) no-repeat;
 	height: 61px;
 	display: block;
 }
+.main-content {
+	margin-bottom: 30px;
+}
 
 .page-footer{
 	-moz-box-sizing: border-box;
     box-sizing: border-box;
-	margin-top: -20px;
+	margin-top: -61px;
 	height: 61px;
 	width: 100%;
 	min-width: 1050px;

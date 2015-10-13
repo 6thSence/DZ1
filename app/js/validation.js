@@ -42,8 +42,8 @@ var validation = (function(){
 		        }
 			},
 			hide: {
-				event: 'hideTooltip change',
-				// event: 'keyup hideTooltip change',
+				// event: 'hideTooltip change',
+				event: 'keyup hideTooltip change',
 				effect: function(offset) {
 		            $(this).slideUp(100); 
 		        }
@@ -58,6 +58,7 @@ var validation = (function(){
 
     // Универсальная функция
     var validateForm =  function(form) {
+    	 // Проверяет, чтобы все поля формы были не пустыми. Если пустые - вызывает тултипы
     	var elements = form.find('input,textarea').not('input[type="file"], input[type="hidden"]'),
     		valid = true;
 

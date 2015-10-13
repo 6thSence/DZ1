@@ -6,9 +6,16 @@ var myWork = (function(){
 
 	var _setUpListners = function() {
 		$('#add-new-project').on('submit', _submitForm);
+		$('#fileupload').on('change', _changeFileUpload);
 	};
 
-	
+// Изменили файл аплоад (добавили файл в файлаплоад)
+var _changeFileUpload = function (){
+	var input = $(this), //input type = file
+		name = input[0].files[0].name; //имя загруженного файла
+
+}
+
 var _submitForm = function(e) {
 	e.preventDefault();
 	var form = $(this),
@@ -36,8 +43,9 @@ var _ajaxForm = function (form, url) {
 		errorBox = form.find('.error-mes');
 
 	if (!validation.validateForm(form)) return false;
+	// Возвращает false, если не проходит валидацию
 	// Если false то код ниже не произодет никгда
-	var data = form.serialize(),
+	var data = form.serialize(), // собираем данные из формы в объект data
 	    result = $.ajax({
 	             url: url,
 	             type: 'POST',

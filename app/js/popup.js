@@ -7,8 +7,10 @@ var myModule = (function(){
 
   //отслеживание событий
   var _setUpListners = function() {
+    //отобразить модуль
       $('#my-popup').bind('click',_showPop);
-    $('.input-file__element').on('change', _changeNameFile);
+    //слежка за изменением имени 
+    $('#fileupload').on('change', _changeNameFile);
   };
 
   //работа с модальным окном
@@ -30,15 +32,14 @@ var myModule = (function(){
   };
   //изменение имя файла в отображении
   var _changeNameFile = function () {
+    var input = $(this), // инпут type="file"
+        name = input[0].files[0].name; // имя загруженного файла
+    $('#filename')
+      .val(name) 
+      .trigger('hideTooltip')
+      .removeClass('error'); 
 
-   var $this = $(this),
-          val =$this.val().slice(12),
-          fileNameField = $('.input-file-name');
-          fileNameField.text(val);
-
-    if (val=="") {
-      fileNameField.text("Загрузите изображение");
-    };
+ 
   };
   var _clearFormPopUp = function (form) {
     var

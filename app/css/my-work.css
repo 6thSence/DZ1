@@ -285,14 +285,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ce7cd', end
 	cursor: pointer;
 	display: block;
   width: 52px;
-  height: 43px;
+  height: 42px;
 	/*position: relative;*/
 	position: absolute;
   right: 12px;
   margin-top: 1px;
   /*float: right;*/
 	background: url(image/upl.png)  no-repeat;
-	background-size: 50px 42px;
+	background-size: 49px 42px;
 	/*background-color: #48cbe8;*/
 	border-radius: 0 4px 4px 0;
 	border-left: 1px solid #d6d5d3;

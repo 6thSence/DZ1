@@ -2,3 +2,9 @@ AddDefaultCharset UTF-8
 ErrorDocument 401 /401.html
 ErrorDocument 403 /403.html
 ErrorDocument 404 /404.html
+
+# Настройка сессии
+php_value session.use_cookies 1
+php_value session.use_only_cookies 1
+php_value session.save_path "E:/OpenServer/domains/dz/app/sessions/"
+php_value session.trans_sid 0

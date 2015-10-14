@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru_RU">
 <head>
@@ -31,6 +32,7 @@
 	<script src='bower_components/modernizr/modernizr.js'></script>
 	<!-- endbuild -->
 	<link href="css/image/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 <!--END:links-->
 </head>
 <body class="my_body">
@@ -136,12 +138,7 @@
 							<textarea class="input big " name="message" rows="5" placeholder="Кратко в чем суть" qtip-position="left"qtip-content="ваш вопрос"></textarea>
 						</div>
 						<div class="kapcha-div">
-							<p class="back-text">Введите код, указанный на картинке</p>
-							<div class="kapcha-div-img">
-
-								<img src="css/image/kapcha.png" alt="" class="kapcha">
-							</div>
-							<input class="input code" type="text" name="kapcha" placeholder="Введите код" x-autocompletetype="name" qtip-position="right" qtip-content="код капчи">
+								<div id="html_element" data-theme="light" class="g-recaptcha" data-sitekey="6LcEtw4TAAAAAK8JC9lOcMvUdUW63Ea35SCG65rc"></div>
 						</div>
 						<div class="buttons">
 							<button class="sub" type="submit" value="Отправить">Отправить</button>

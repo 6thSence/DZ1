@@ -6,15 +6,10 @@ var myWork = (function(){
 
 	var _setUpListners = function() {
 		$('#add-new-project').on('submit', _submitForm);
-		$('#fileupload').on('change', _changeFileUpload);
+		
 	};
 
-// Изменили файл аплоад (добавили файл в файлаплоад)
-var _changeFileUpload = function (){
-	var input = $(this), //input type = file
-		name = input[0].files[0].name; //имя загруженного файла
 
-}
 
 var _submitForm = function(e) {
 	e.preventDefault();

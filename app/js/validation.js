@@ -11,6 +11,7 @@ var validation = (function(){
     	$('form').on('keyup', '.error', _removeError);
     	$('form').on('change', '.error', _removeError);
     };
+    //удаляем класс с ошибкой, красный бордер
     var _removeError = function () {
     	$(this).removeClass('error');
     }
@@ -42,7 +43,6 @@ var validation = (function(){
 		        }
 			},
 			hide: {
-				// event: 'hideTooltip change',
 				event: 'keyup hideTooltip change',
 				effect: function(offset) {
 		            $(this).slideUp(100); 
@@ -50,7 +50,6 @@ var validation = (function(){
 			},
 			position:position,
 			style: {
-				// classes: 'qtip-rounded'
 				classes: 'qtip-rounded qtip-myclass',
 			}
 		}).trigger('show');
@@ -67,7 +66,7 @@ var validation = (function(){
     		var element = $(val),
     			val = element.val(),
     			pos = element.attr('qtip-position');
-
+    	//если поле пустое создаем тултип, добавляем класс ошибки и присваеваем значение валидации false
 	    	if (val.length === 0) {
 	    	 	_createQtip(element,pos);
 	    	 	element.addClass('error');
@@ -75,25 +74,23 @@ var validation = (function(){
 	    		
 	    	}
     	});
+    	//возвращаем результат проверки валидации формы
     	return valid;
     };
 
+    //на очистку форму reset
     var clearFormReset = function (form) {
-
 		var 
 			form = $(this),
 			elements =form.find('input,textarea');
-			elements.trigger('hideTooltip').removeClass('error');
-
-
-
+			elements.trigger('hideTooltip').removeClass('error'); //у всех полей формы убираем тултипы и убираем класс ошибки
 	};
 
      // Возвращает объект (публичные методы)
     return {
         init: init,
-        validateForm: validateForm,
-        clearFormReset: clearFormReset
+        validateForm: validateForm, //валидация формы, универсальная функция
+	    clearFormReset: clearFormReset  //на очистку форму reset
     };
 
 })();

@@ -217,7 +217,7 @@
 
 <!-- POPUP -->
 <div id="element_to_pop_up">
-	<form method="POST" id="add-new-project" class="form">
+	<form action="upload.php" enctype="multipart/form-data" method="post" id="add-new-project" class="form">
 		<div class="server-mes error-mes">
 			<span class="bold">Ошибка!</span>
 			<span class="">Невозможно добавить проект.</span>
@@ -229,19 +229,13 @@
 		<p class="add-text">Название проекта</p>
 		<input class="input" type="text" name="pro-name" placeholder="Введите название" x-autocompletetype="pro-name" qtip-position="left"	qtip-content="введите название">
 		<p class="add-text">Картинка проекта</p>
-<!-- 
-		<label for="" class ="input file-label error" placeholder="Загрузите изображение" qtip-position="left" qtip-content="изображение">
-			<div class="input-file-name">Загрузите изображение</div>
-			<input id="fileupload" class="input-file__element" type="file" name="image"  placeholder="Загрузите изображение" x-autocompletetype="image" qtip-position="left" qtip-content="изображение">
-			<div class="button-file-wrapper"> 
-			<div class="button-file"></div></div>
-		</label> -->
 
 		<label class="fileupload-lable">
 			<input id="fileupload" class="fileupload" type="file" name="files[]">
 			<input id="fileurl" type="hidden" name="fileurl">
 		</label>
-		<input id="filename" type="text" class="input filename" name="filename" placeholder="Загрузите изображение" disabled qtip-content="Вы не выбрали изображение" qtip-position="left">
+		<input id="filename" type="text" class="input filename" name="avatar" placeholder="Загрузите изображение" disabled qtip-content="Вы не выбрали изображение" qtip-position="left">
+		<!-- <input id="filename" type="text" class="input filename" name="filename" placeholder="Загрузите изображение" disabled qtip-content="Вы не выбрали изображение" qtip-position="left"> -->
 
 		<p class="add-text">URL проекта</p>
 		<input class="input" type="text" name="url"  placeholder="Добавьте ссылку" x-autocompletetype="url" qtip-position="left" qtip-content="ссылка на проект">

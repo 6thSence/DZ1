@@ -1,0 +1,12 @@
+{
+    "name": "dz/composer",
+    "authors": [
+        {
+            "name": "6thSence",
+            "email": "d.pushkarskaya.pr@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^5.2"
+    }
+}

@@ -22,16 +22,16 @@
 
 if (!check_captcha($sekret_key, $captcha, $ip)){
 	$dataBack['status']='error';
-	$dataBack['text'] ='Вы не верно заполнили капчу';
+	$dataBack['text'] ='Вы не верно заполнили капчу!';
 }else {
 	// $dataBack['status']='OK';
 	// $dataBack['text'] ='Капча верна';
  	if (send_message_to_email (array ('name' => $name,'email' => $email,'message'=> $msg) ) ) {
 		$dataBack['status']='OK';
-		$dataBack['text'] ='Ваше письмо успешно отправлено';
+		$dataBack['text'] ='Ваше письмо успешно отправлено!';
     } else {
 		$dataBack['status']='error';
-		$dataBack['text'] ='Что-то пошло не так, письмо не отправлено';
+		$dataBack['text'] ='Что-то пошло не так, письмо не отправлено! Возможно проблемы с сервером.';
     }
 
  
@@ -53,6 +53,7 @@ function check_captcha($key, $catpcha, $ip){
 function send_message_to_email($dataMail){
 	$mail = new PHPMailer;
 	$mail->isSendmail();
+	$mailer->CharSet = 'UTF-8';
 	// Указываем отправителя письма
 	$mail->setFrom('d.pushkarskaya.pr@gmail.com', 'Пушкарской Дарьи');
 	// Указываем получателя письма

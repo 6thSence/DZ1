@@ -39,10 +39,11 @@
 <!-- <div class="main-content"> -->
     <div class="login-div">
 		<form method="POST" id="login" class="login">
+				<div id="serv-msg" class="serv-msg error"></div>
 				<label for="" class ="label-login" >
 				<div class="button-login-wrapper email"> </div>
 
-				<input class="input-login" type="text" name="image" placeholder="Введите Email" x-autocompletetype="image" qtip-position="right" 
+				<input class="input-login" type="text" name="login" placeholder="Введите Email" x-autocompletetype="image" qtip-position="right" 
 					qtip-content="введите email">
 
 				</label>	
@@ -50,7 +51,7 @@
 				<label for="" class ="label-login" >
 
 				<div class="button-login-wrapper password"></div>
-				<input class="input-login" type="password" name="image" placeholder="Введите пароль" x-autocompletetype="image" qtip-position="right" 
+				<input class="input-login" type="password" name="password" placeholder="Введите пароль" x-autocompletetype="image" qtip-position="right" 
 					qtip-content="введите пароль">
 
 				</label>
@@ -69,10 +70,9 @@
 	<footer class="page-footer clearfix">
 		<div class="container">
 
-			<div class="lock"
-			><a href="/login.html" class="lock-inner"></a>
-
-			<a href="/login.html" class="lock-inner-text">вход</a>
+			<div class="lock">
+			<a href="/logout.php" class="lock-inner"></a>
+			<a href="/logout.php" class="lock-inner-text">вход</a>
 			</div>
 
 			<div class="copyright">© 2015. Это мой сайт, пожалуйста, не копируйте и не воруйте его!</div>

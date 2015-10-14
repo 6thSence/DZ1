@@ -8,25 +8,30 @@ var contactMe = (function(){
 	 $('#feedback-form').on('submit', _submitForm); //по submit вызываем функцию _submitForm
 	 $('form').on('reset', validation.clearFormReset); //убираем тултипы и крассы ошибки после Reset
 	};
+
 	//сабмит формы, выполняем ajax запрос на сервер и работаем с ответом с сервера
 	var _submitForm = function(e) {
 		e.preventDefault();
+		// $("input[type=submit]").attr('disabled','disabled');
 		var form = $(this),
 			url ='contactme.php', //адресс куда мы отправляем ajax
+			box = $('#serv-msg'),
 			defObj = _ajaxForm(form, url); //форма и url передаем в ajax
-		console.log('submit формы');
+			
+		console.log(box);
 		if (defObj) {
-			console.log('defObj true');
 			defObj.done(function(ans){
 				//ajax выполен, вернул значение ans
 				if (ans.status === 'OK') { 
-					console.log(ans.text);
+					box.text(ans.text).addClass('success').removeClass('error').show();
+
 				}else{
-					console.log(ans.text);
+					box.text(ans.text).addClass('error').removeClass('success').show();
+					
 				}
 			})
 		}else {
-			console.log('валидация не пройдена');
+			box.text('Каптча не введена!').addClass('error').removeClass('success').show();
 		}
 	};
 
@@ -34,9 +39,11 @@ var contactMe = (function(){
     var _ajaxForm = function (form, url) {
 	    if (!validation.validateForm(form)) return false; 
 	    //проверка формы на валидацию
+	    
 	    console.log('ajax');
 	    // Если false то код ниже не произодет никгда
 	    var data = form.serialize(), //сериализуем форму для отправки в виде
+	    	box = $('#serv-msg'),
 	 	//присваеваем значение которое вернет ajax
 	 		 result = $.ajax({ 
 		                url: url, 
@@ -45,8 +52,9 @@ var contactMe = (function(){
 		                data: data,		   //передаваеммые данные с формы
 		                }).fail(function(ans) {
 			        		//в случаи если ajax не удался выводим ошибку
-			               console.log('ajax failed');
+			               box.text('Письмо не отправлено! Проблемы с сервером.').addClass('error').removeClass('success').show();
 				        });
+
 	    return result;
 	    
     };

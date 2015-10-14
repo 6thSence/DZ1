@@ -84,6 +84,7 @@ var validation = (function(){
 			form = $(this),
 			elements =form.find('input,textarea');
 			elements.trigger('hideTooltip').removeClass('error'); //у всех полей формы убираем тултипы и убираем класс ошибки
+		$('#serv-msg').slideUp();
 	};
 
      // Возвращает объект (публичные методы)

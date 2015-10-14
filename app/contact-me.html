@@ -124,6 +124,7 @@
 				<h2 class="aboutbox-header">У вас интересный проект? Напишите мне</h2>
 				<div class="aboutbox-body contact-me clearfix">
 					<form method="POST" id="feedback-form" class="back-form clearfix">
+						<div class="serv-msg error" id="serv-msg"></div>
 						<div class="back-text-div left">
 							<p class="back-text  ">Имя</p>
 							<input class="input first" type="text" name="name" placeholder="Как к вам обращаться" x-autocompletetype="name" qtip-position="left" qtip-content="введите имя">
@@ -141,7 +142,7 @@
 								<div id="html_element" data-theme="light" class="g-recaptcha" data-sitekey="6LcEtw4TAAAAAK8JC9lOcMvUdUW63Ea35SCG65rc"></div>
 						</div>
 						<div class="buttons">
-							<button class="sub" type="submit" value="Отправить">Отправить</button>
+							<button class="sub" type="submit" value="Отправить" disable>Отправить</button>
 							<button class="sub res" type="reset" value="Очистить">Очистить</button>
 						</div>
 					</form>
@@ -158,8 +159,8 @@
 <footer class="page-footer clearfix">
 	<div class="container">
 		<div class="lock">
-			<a href="/login.html" class="lock-inner"></a>
-			<a href="/login.html" class="lock-inner-text">вход</a>
+			<a href="/logout.php" class="lock-inner"></a>
+			<a href="/logout.php" class="lock-inner-text">вход</a>
 		</div>
 		<div class="copyright">© 2015. Это мой сайт, пожалуйста, не копируйте и не воруйте его!</div>
 	</div>

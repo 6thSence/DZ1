@@ -21,23 +21,23 @@ var myModule = (function(){
                  dataType: 'json',
                  // data: data,
                  }).fail(function(ans) {
-                    console.log('не удалось получить ответа');
+                  
                  });
 
     if (defObj) {
       defObj.done(function(ans){
         //ajax выполен, вернул значение ans
         if (ans.checkadmin === true) { 
-         console.log('доступ есть');
+         
          _showPop();
 
         }else{
-          console.log('доступа нет');
+          
           _showPopError();
         }
       })
     }else {
-      console.log('ajax false');
+      
     }
    
   }

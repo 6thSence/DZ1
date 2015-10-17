@@ -14,6 +14,7 @@ var validation = (function(){
     //удаляем класс с ошибкой, красный бордер
     var _removeError = function () {
     	$(this).removeClass('error');
+    	$('#dis').removeAttribute("disabled");
     }
     // Создает тултипы
     var _createQtip = function (element, position) {
@@ -85,6 +86,7 @@ var validation = (function(){
 			elements =form.find('input,textarea');
 			elements.trigger('hideTooltip').removeClass('error'); //у всех полей формы убираем тултипы и убираем класс ошибки
 		$('#serv-msg').slideUp();
+		$('#dis').removeAttribute("disabled");
 	};
 
      // Возвращает объект (публичные методы)

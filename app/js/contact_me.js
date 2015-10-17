@@ -12,21 +12,25 @@ var contactMe = (function(){
 	//сабмит формы, выполняем ajax запрос на сервер и работаем с ответом с сервера
 	var _submitForm = function(e) {
 		e.preventDefault();
+		
+		
 		// $("input[type=submit]").attr('disabled','disabled');
 		var form = $(this),
 			url ='contactme.php', //адресс куда мы отправляем ajax
 			box = $('#serv-msg'),
 			defObj = _ajaxForm(form, url); //форма и url передаем в ajax
 			
-		console.log(box);
+		
 		if (defObj) {
 			defObj.done(function(ans){
 				//ajax выполен, вернул значение ans
 				if (ans.status === 'OK') { 
 					box.text(ans.text).addClass('success').removeClass('error').show();
+					$('#dis').setAttribute("disabled");
 
 				}else{
 					box.text(ans.text).addClass('error').removeClass('success').show();
+
 					
 				}
 			})
@@ -40,7 +44,7 @@ var contactMe = (function(){
 	    if (!validation.validateForm(form)) return false; 
 	    //проверка формы на валидацию
 	    
-	    console.log('ajax');
+	   
 	    // Если false то код ниже не произодет никгда
 	    var data = form.serialize(), //сериализуем форму для отправки в виде
 	    	box = $('#serv-msg'),

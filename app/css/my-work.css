@@ -297,6 +297,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ce7cd', end
 	border-radius: 0 4px 4px 0;
 	border-left: 1px solid #d6d5d3;
 }
+.no-cssgradients .fileupload-lable {
+	margin-top: 4px;
+}
 .button-file-wrapper {
 
 	margin-top: -25px;

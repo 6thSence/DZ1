@@ -72,6 +72,8 @@ var validation = (function(){
 	    	 	_createQtip(element,pos);
 	    	 	element.addClass('error');
 	    		valid = false;
+				console.log('валид false');
+				console.log(element);
 	    		
 	    	}
     	});

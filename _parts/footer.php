@@ -16,18 +16,21 @@
     </div>
 </footer>
 <script src="js/vendor.min.js"></script>
+<?php if($page == "portfolio"): ?>
+
+    <script src="./js/jquery.ui.widget.js"></script>
+    <script src="./js/jquery.iframe-transport.js"></script>
+    <script src="./js/jquery.fileupload.js"></script>
+
+<?php endif; ?>
+
 <script src="./js/main.js"></script>
 <script src="./js/popup.js"></script>
 <script src="./js/add_project.js"></script>
 <script src="./js/validation.js"></script>
 <script src="./js/contact_me.js"></script>
 <script src="./js/login.js"></script>
-<?php if($page == "portfolio"): ?>
-    <!-- fileupload -->
-    <script src="./js/jquery.ui.widget.js"></script>
-    <script src="./js/jquery.iframe-transport.js"></script>
-    <script src="./js/jquery.fileupload.js"></script>
-    <!-- end - fileupload -->
-<?php endif; ?>
+
+
 </body>
 </html>

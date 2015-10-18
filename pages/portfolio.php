@@ -48,6 +48,7 @@
         <input id="filename" type="text" class="input filename" name="avatar" placeholder="Загрузите изображение" disabled qtip-content="Вы не выбрали изображение" qtip-position="left">
         <p class="add-text">URL проекта</p>
         <input class="input" type="text" name="url"  placeholder="Добавьте ссылку" x-autocompletetype="url" qtip-position="left" qtip-content="ссылка на проект">
+        <input id="fileurl" type="hidden" name="fileurl">
         <p class="add-text">Описание</p>
         <textarea class="input big" name="about"  rows="5"  placeholder="Пару слов о Вашем проекте" qtip-position="left" qtip-content="описание проекта"></textarea>
         <button class="sub current" type="submit" value="Добавить">Добавить</button>

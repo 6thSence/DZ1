@@ -1,57 +1,64 @@
 var myWork = (function(){
 
 	var init = function () {
+		$('#fileupload').fileupload({
+			url: './actions/upload.php',
+			dataType: 'json',
+			success: function(data){
+				$('#fileurl, #filename').val(data.name).trigger('hideTooltip').removeClass('has-error');
+			}
+		});
 		_setUpListners();
-		};
+		},
 
-	var _setUpListners = function() {
-		$('#add-new-project').on('submit', _submitForm);
+	 _setUpListners = function() {
+		$('#add-new-project').on('submit', _addProject);
 		
-	};
+	 },
 
 
 
-var _submitForm = function(e) {
+ _addProject = function(e) {
 	e.preventDefault();
 	var form = $(this),
-		url ='add_project.php',
+		url ='./actions/add_project.php',
 		defObj = _ajaxForm(form, url);
 
 	if(defObj) {
 		defObj.done(function(ans){
+			var mes = ans.mes,
+				status = ans.status;
 			var successBox =form.find('.success-mes'),
 				errorBox = form.find('.error-mes');
 			if (ans.status === 'OK') {
 				errorBox.hide();
 				successBox.show();
+				console.log(mes);
 			}else{
 				successBox.hide();
 				errorBox.show();
+				console.log(mes);
 			}
 		})
 	}
-};
+ },
 
-//функция ajax для отправки данных из формы на сервер
-var _ajaxForm = function (form, url) {
-	var successBox =form.find('.success-mes'),
-		errorBox = form.find('.error-mes');
 
+ _ajaxForm = function (form, url) {
 	if (!validation.validateForm(form)) return false;
-	// Возвращает false, если не проходит валидацию
-	// Если false то код ниже не произодет никгда
-	var data = form.serialize(), // собираем данные из формы в объект data
-	    result = $.ajax({
-	             url: url,
-	             type: 'POST',
-	             dataType: 'json',
-	             data: data,
-	             }).fail(function(){
-				errorBox.text('На сервере произошла ошибка').show();
-	    		successBox.hide();
-	  			  });
 
-	return result;
+	var successBox =form.find('.success-mes'),
+		errorBox = form.find('.error-mes'),
+		data = form.serialize();
+	return  $.ajax({
+		url: url,
+		type: 'POST',
+		dataType: 'JSON',
+		data: data,
+		}).fail(function(){
+		errorBox.text('На сервере произошла ошибка').show();
+		successBox.hide();
+	});
 };
 
 	return {

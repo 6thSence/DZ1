@@ -14,52 +14,41 @@ var login = (function(){
 		e.preventDefault();
 
 		var form = $(this),
-			url ='login.php',
+			url ='./actions/auth.php',
 			box = $('#serv-msg'),
-			defObj = _ajaxForm(form, url);
-		if (defObj) {
-			
-			//что-то будем делать с ответом с сервера defObj
-			defObj.done(function(ans){
-				
-				//ajax выполен, вернул значение ans
-				if (ans.status === 'OK') { 
-					
+			defObject = _ajaxForm(form, url);
+
+		if (defObject) {
+			defObject.done(function (ans) {
+				var mes = ans.mes,
+					status = ans.status;
+
+				if (status === 'OK') {
+
 					box.slideUp();
-					window.location.href="/my-work.html"
-					// window.location.href="http://dz/app/index.html"
-				}else{
-					box.text(ans.text).slideDown();
-					
+					window.location.href = "/";
+				} else {
+					box.text(mes).slideDown();
+
 				}
-			})
-		}else {
-			
-			// box.text('Каптча не введена!').addClass('error').removeClass('success').show();
+			});
 		}
-	}
+		};
 	
-
-//функция ajax для отправки данных из формы на сервер
   var _ajaxForm = function (form, url) {
-	
+		if (!validation.validateForm(form)) return false;
+    var data = form.serialize();
 
-    if (!validation.validateForm(form)) return false;
-    // Если false то код ниже не произодет никгда
-
-    var data = form.serialize(),
-        result = $.ajax({
-                 url: url,
-                 type: 'POST',
-                 dataType: 'json',
-                 data: data,
-                 }).fail(function(ans) {
-                 
+		return  $.ajax({
+			type: 'POST',
+			url: url,
+			dataType: 'JSON',
+			data: data,
+		}).fail(function(ans) {
                  form.find('.error-mes').text('На сервере произошла ошибка').show();
                  form.find('.success-mes').hide();
                  });
-        
-    return result;
+
   };
 
 	return {

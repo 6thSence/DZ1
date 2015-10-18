@@ -1,1 +1,44 @@
-<?phperror_reporting(0);// Îòêðûâàåì ñåññèþsession_start();// Ïîëó÷àåì çíà÷åíèå àäðåñíîé ñòðîêè$page = $_GET['page'];$data = array();require_once 'config.php';switch($page){    case 'index':        $data['title'] = "Ãëàâíàÿ ñòðàíèöà";        require_once 'templates/main.php';        break;    case 'contacts':        $data['title'] = "Ñâÿçàòüñÿ ñî ìíîé";        require_once 'templates/main.php';        break;    case 'portfolio':        $data['title'] = "Ìîè ðàáîòû";        $dbcon = connectToDB();        $projects = getDataAsArray($dbcon, $data_sql['getPortfolio']);        require_once 'templates/main.php';        break;    case 'auth':        $data['title'] = "Âõîä äëÿ àäìèíèñòðàòîðà";        require_once 'templates/auth.php';        break;    case 'logout':        unset($_SESSION['auth']);        session_destroy();        header("HTTP/1.1 307 Temporary Redirect");        header("Location: /");        exit;}
+<?php
+error_reporting(0);
+// ÐžÑ‚ÐºÑ€Ñ‹Ð²Ð°ÐµÐ¼ ÑÐµÑÑÐ¸ÑŽ
+session_start();
+
+// ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð°Ð´Ñ€ÐµÑÐ½Ð¾Ð¹ ÑÑ‚Ñ€Ð¾ÐºÐ¸
+$page = $_GET['page'];
+$data = array();
+require_once 'config.php';
+
+
+switch($page){
+
+    case 'index':
+        $data['title'] = "Ð“Ð»Ð°Ð²Ð½Ð°Ñ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ð°";
+        require_once 'templates/main.php';
+        break;
+
+    case 'contacts':
+        $data['title'] = "Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ ÑÐ¾ Ð¼Ð½Ð¾Ð¹";
+        require_once 'templates/main.php';
+        break;
+
+
+    case 'portfolio':
+        $data['title'] = "ÐœÐ¾Ð¸ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹";
+        $dbcon = connectToDB();
+        $projects = getDataAsArray($dbcon, $data_sql['getPortfolio']);
+        require_once 'templates/main.php';
+        break;
+
+    case 'auth':
+        $data['title'] = "Ð’Ñ…Ð¾Ð´ Ð´Ð»Ñ Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ð°";
+        require_once 'templates/auth.php';
+        break;
+
+    case 'logout':
+        unset($_SESSION['auth']);
+        session_destroy();
+        header("HTTP/1.1 307 Temporary Redirect");
+        header("Location: /");
+        exit;
+
+}

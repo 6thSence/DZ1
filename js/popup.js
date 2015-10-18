@@ -8,50 +8,12 @@ var myModule = (function(){
   //отслеживание событий
   var _setUpListners = function() {
     //отобразить модуль
-      $('#my-popup').bind('click',_checkAdmin);
+      $('#my-popup').bind('click',_showPop);
       // $('#my-popup').bind('click',_showPop);
     //слежка за изменением имени 
     $('#fileupload').on('change', _changeNameFile);
   };
-  //проверяем сессию админа
-  var _checkAdmin = function () {
-    var defObj = $.ajax({
-                 url: "check.php",
-                 type: 'POST',
-                 dataType: 'json',
-                 // data: data,
-                 }).fail(function(ans) {
-                  
-                 });
 
-    if (defObj) {
-      defObj.done(function(ans){
-        //ajax выполен, вернул значение ans
-        if (ans.checkadmin === true) { 
-         
-         _showPop();
-
-        }else{
-          
-          _showPopError();
-        }
-      })
-    }else {
-      
-    }
-   
-  }
-  var _showPopError = function () {
-    var divPopup =$('#element_to_pop_up_error');
-     divPopup.bPopup({
-        speed: 650,
-        transition: 'slideIn',
-        transitionClose: 'slideBack',
-        modalColor: '#696662'
-        //, onClose: 
-    });
-  };
-  //работа с модальным окном
   var _showPop = function(e){
     // e.preventDefault(); // отменяет стандартное поведение елемента
 

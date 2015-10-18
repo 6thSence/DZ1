@@ -1,1 +1,33 @@
-<?phpsession_start();require_once '../config.php';header('Content-Type: application/json');$data = array();if($_SERVER['REQUEST_METHOD'] == 'POST'){    $login = clear_str($_POST['login']);    $password = md5($_POST['password']);    $sql = "SELECT COUNT(users.id) as cnt FROM users WHERE login = '{$login}' AND password = '{$password}'";    $dbcon = connectToDB();    $check_user = getDataAsArray($dbcon, $sql);    $is_admin = $check_user[0]['cnt'];    if($is_admin){        $_SESSION['auth'] = true;        $data['status'] = "OK";        $data['mes'] = "Äîáðî ïîæàëîâàòü";    } else {        $data['status'] = "NO";        $data['mes'] = "Íåò òàêîãî ïîëüçîâàòåëÿ â ñèñòåìå";    }} else {    $data['status'] = "NO";    $data['mes'] = "Îøèáêà ïðè îáðàùåíèè ê ôàéëó";}echo json_encode($data);exit;
+<?php
+session_start();
+require_once '../config.php';
+header('Content-Type: application/json');
+
+$data = array();
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    $login = clear_str($_POST['login']);
+    $password = md5($_POST['password']);
+
+    $sql = "SELECT COUNT(users.id) as cnt FROM users WHERE login = '{$login}' AND password = '{$password}'";
+    $dbcon = connectToDB();
+    $check_user = getDataAsArray($dbcon, $sql);
+    $is_admin = $check_user[0]['cnt'];
+
+    if($is_admin){
+        $_SESSION['auth'] = true;
+        $data['status'] = "OK";
+        $data['mes'] = "Ð”Ð¾Ð±Ñ€Ð¾ Ð¿Ð¾Ð¶Ð°Ð»Ð¾Ð²Ð°Ñ‚ÑŒ";
+    } else {
+        $data['status'] = "NO";
+        $data['mes'] = "ÐÐµÑ‚ Ñ‚Ð°ÐºÐ¾Ð³Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ðµ";
+    }
+
+} else {
+    $data['status'] = "NO";
+    $data['mes'] = "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ Ð¾Ð±Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ð¸ Ðº Ñ„Ð°Ð¹Ð»Ñƒ";
+}
+
+echo json_encode($data);
+exit;

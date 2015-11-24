@@ -1,10 +1,6 @@
 # Установка кодировки для проекта
 AddDefaultCharset UTF-8
 
-ErrorDocument 401 /401.html
-ErrorDocument 403 /403.html
-ErrorDocument 404 /404.html
-
 # Разрешение прохождения по символическим ссылкам
 Options FollowSymLinks
 # Запрет на просмотр файлов в директориях
@@ -21,8 +17,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # Если это не файл
 RewriteCond %{REQUEST_FILENAME} !-f
 
-RewriteRule ^/portfolio/?$ main.php?page=portfolio
-RewriteRule ^/contacts/?$ main.php?page=contacts
-RewriteRule ^/auth/?$ main.php?page=auth
-RewriteRule ^/logout/?$ main.php?page=logout
+RewriteRule ^portfolio/?$ main.php?page=portfolio
+RewriteRule ^contacts/?$ main.php?page=contacts
+RewriteRule ^auth/?$ main.php?page=auth
+RewriteRule ^logout/?$ main.php?page=logout
 RewriteRule ^/?$ main.php?page=index

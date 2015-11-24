@@ -42,13 +42,13 @@
         <h2 class="aboutbox-header">Опыт работы</h2>
         <div class="aboutbox-body">
             <ul class="aboutbox-list">
+<!--                <li class="aboutbox-item icon-work">-->
+<!--                    <div class="where">"ИП Боровицкий" - Продавец дисков</div>-->
+<!--                    <div class="period">Сентябрь 2005 - Август 2008</div>-->
+<!--                </li>-->
                 <li class="aboutbox-item icon-work">
-                    <div class="where">"ИП Боровицкий" - Продавец дисков</div>
-                    <div class="period">Сентябрь 2005 - Август 2008</div>
-                </li>
-                <li class="aboutbox-item icon-work">
-                    <div class="where">"ООО Системы безопасности" - Системный администратор</div>
-                    <div class="period">Июнь 2008 - Июль 2010</div>
+                    <div class="where">Опыт работы в команде - проект "Генератор водяных знаков"</div>
+                    <div class="period">Октябрь 2015 - Ноябрь 2015</div>
                 </li>
             </ul>
         </div>
@@ -63,7 +63,7 @@
                 </li>
                 <li class="aboutbox-item icon-college last">
                     <div class="where">Курсы LoftSchool</div>
-                    <div class="period">Сертябрь 2015 - по настоящее время</div>
+                    <div class="period">Сертябрь 2015 - Ноябрь 2015</div>
                 </li>
             </ul>
         </div>
